@@ -1,0 +1,10 @@
+services:
+
+  dash:
+    build: .
+    container_name: back-2048
+    restart: always
+    environment:
+      - APP_NAME=back-2048
+    ports:
+      - "3000:3000"
