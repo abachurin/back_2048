@@ -40,7 +40,7 @@ jobs:
         run: echo "Build = success"
 
       - name: Push to Docker Hub
-        run: docker push $DOCKER_USER/$REPO_NAME:${{ steps.date.outputs.date }}
+        run: docker push $DOCKER_USER/$REPO_NAME:latest
 
       - name: Message about CD
         run: echo "Push = success"
