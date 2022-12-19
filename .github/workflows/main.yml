@@ -22,11 +22,11 @@ jobs:
     - name: Check out the repo
       uses: actions/checkout@v3
 
-#    - name: Log in to Docker Hub
-#      uses: docker/login-action@v1
-#      with:
-#        username: ${{ secrets.DOCKER_PASSWORD }}
-#        password: ${{ secrets.DOCKER_PWD }}
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_PASSWORD }}
+        password: ${{ secrets.DOCKER_PWD }}
 #
 #    - name: Message about CD
 #      run: echo "Login = success"
