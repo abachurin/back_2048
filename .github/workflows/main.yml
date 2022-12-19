@@ -8,8 +8,8 @@ env:
   ENV-NAME: "Appgame2048-env"
   PACKAGE-DEPLOY: "app-game2048-${{ github.sha }}.zip"
   AWS-REGION: "eu-west-1"
-  DOCKER-USER: ${{secrets.DOCKER_USER}}
-  DOCKER-PASSWORD: ${{secrets.DOCKER_PWD}}
+  DOCKER-USER: ${{ secrets.DOCKER_USER }}
+  DOCKER-PASSWORD: ${{ secrets.DOCKER_PWD }}
   REPO-NAME: back_2048
 
 on:
