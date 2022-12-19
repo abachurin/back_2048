@@ -32,7 +32,7 @@ jobs:
       run: echo "Login = success"
 
     - name: Build the Docker image
-      run: docker build . -t $USER/$REPO:latest
+      run: docker build . --platform=linux/arm64 -t $USER/$REPO:latest
 
     - name: Message about CD
       run: echo "Build = success"
