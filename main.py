@@ -5,17 +5,7 @@ app = FastAPI()
 
 @app.get('/')
 async def root():
-    return {'message': 'Robot-2048 bicycle API'}
-
-
-@app.get('/test/{n}')
-async def test(n: int):
-    return {'value': n*n}
-
-
-@app.get('/files')
-async def test():
-    return {'files': S3.list_files()}
+    return {'message': 'Robot-2048 backend, made with FastAPI, go to /docs to see all available endpoints'}
 
 
 @app.post('/users/new')
@@ -27,6 +17,21 @@ async def new_user(user: User):
         return {'status': True, 'message': f'{user.name} successfully added'}
 
 
+@app.post('/users/delete')
+async def delete_user(username: str):
+    user = DB.find_user(username)
+    if user:
+        for agent in user['agents']:
+            S3.delete(f'{agent}.pkl', 'agents')
+            S3.delete(f'best_of_{agent}.pkl', 'games')
+            S3.delete(f'best_of_trial_{agent}.pkl', 'games')
+            S3.delete(f'stop_{agent}.json', 'stop')
+        DB.delete_user(username)
+        return {'status': False, 'message': f'{user.name} successfully deleted'}
+    else:
+        return {'status': True, 'message': f'{user.name} does not exist'}
+
+
 if __name__ == '__main__':
 
-    uvicorn.run(app, host="0.0.0.0", port=3000)
+    uvicorn.run(app, host="0.0.0.0", port=5000)

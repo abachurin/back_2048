@@ -1,0 +1,31 @@
+# abachurin, Dec 19 2022
+
+name: Build container on my Docker Hub
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy-back:
+    name: Build and Deploy Back
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PWD }}
+        repository: .
+        dockerfile: Dockerfile
+        tags: latest
+
+    - name: Message about CD
+      run: echo "CD pipeline = success"

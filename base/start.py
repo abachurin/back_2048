@@ -154,17 +154,14 @@ class Mongo:
     def find_user(self, name: str):
         return self.coll.find_one({'name': name})
 
-    def delete(self, query):
-        return self.coll.delete_many(query).deleted_count
-
-    def update_one(self, query, fields):
-        return self.coll.update_one(query, {'$set': fields, '$currentDate': {'time': True}}).modified_count
+    def delete_user(self, name: str):
+        return self.coll.delete_one({'name': name}).deleted_count
 
     def insert_user(self, user: User):
         return self.coll.insert_one(user.to_dict())
 
-    def insert_many(self, *args, **kwargs):
-        raise NotImplementedError
+    def update_one(self, query, fields):
+        return self.coll.update_one(query, {'$set': fields, '$currentDate': {'time': True}}).modified_count
 
 
 working_directory = os.path.dirname(os.path.realpath(__file__))
