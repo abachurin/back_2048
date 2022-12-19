@@ -35,7 +35,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: latest
 
       - name: Message about CD
         run: echo "Push = success"

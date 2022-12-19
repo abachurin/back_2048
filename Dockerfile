@@ -8,5 +8,6 @@ COPY . .
 
 ENV PYTHONPATH /code
 RUN export PYTHONPATH=.
+EXPOSE 5000
 ENTRYPOINT ["python3"]
 CMD ["main.py"]

@@ -168,14 +168,25 @@ working_directory = os.path.dirname(os.path.realpath(__file__))
 with open(os.path.join(working_directory, 'config.json'), 'r') as f:
     CONF = json.load(f)
 LOCAL = os.environ.get('S3_URL', 'local')
-if LOCAL == 'local':
-    with open(CONF['s3_credentials'], 'r') as f:
-        s3_credentials = json.load(f)
-    with open(CONF['mongo_credentials'], 'r') as f:
-        mongo_credentials = json.load(f)
-else:
-    s3_credentials = None
-    mongo_credentials = None
+s3_credentials = {
+    "region": "fra1",
+    "access_key": "DO00ZW2VVULUGPD4HNVV",
+    "secret_key": "iZsJzAmLOksFbCtRiBYA6BEhqwqEpd84sY6x5R5recA",
+    "token": "dop_v1_70a46d6faca7b2c0863f5592e2393d4568c4528f5363abfd119bdf8e634070cc"
+}
+mongo_credentials = {
+    "user": "Robot",
+    "pwd": "jq9JVu5pH-S6JZB",
+    "prefix": "55byx"
+}
+# if LOCAL == 'local':
+#     with open(CONF['s3_credentials'], 'r') as f:
+#         s3_credentials = json.load(f)
+#     with open(CONF['mongo_credentials'], 'r') as f:
+#         mongo_credentials = json.load(f)
+# else:
+#     s3_credentials = None
+#     mongo_credentials = None
 
 S3 = Storage(s3_credentials)
 DB = Mongo(mongo_credentials)
