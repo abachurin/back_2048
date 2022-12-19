@@ -8,9 +8,9 @@ env:
   ENV-NAME: "Appgame2048-env"
   PACKAGE-DEPLOY: "app-game2048-${{ github.sha }}.zip"
   AWS-REGION: "eu-west-1"
-  XXX: ${{ secrets.DOCKER_USERNAME }}
-  YYY: ${{ secrets.DOCKER_PWD }}
-  REPO-NAME: "back_2048"
+  USER: ${{ secrets.DOCKER_USERNAME }}
+  PWD: ${{ secrets.DOCKER_PWD }}
+  REPO: "back_2048"
 
 on:
   pull_request:
