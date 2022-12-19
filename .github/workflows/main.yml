@@ -10,7 +10,7 @@ env:
   AWS-REGION: "eu-west-1"
   XXX: ${{ secrets.DOCKER_USERNAME }}
   YYY: ${{ secrets.DOCKER_PWD }}
-  REPO-NAME: back_2048
+  REPO-NAME: "back_2048"
 
 on:
   pull_request:
