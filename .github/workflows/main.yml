@@ -24,6 +24,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PWD }}
 
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v1
+        with:
+          images: abachurin/back_2048
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v1
         with:
