@@ -3,6 +3,11 @@
 name: Build container on my Docker Hub
 
 env:
+  S3-BUCKET: "deploy-for-2048"
+  APP-NAME: "app-game2048"
+  ENV-NAME: "Appgame2048-env"
+  PACKAGE-DEPLOY: "app-game2048-${{ github.sha }}.zip"
+  AWS-REGION: "eu-west-1"
   DOCKER_USER: ${{secrets.DOCKER_USER}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PWD}}
   REPO_NAME: back_2048
