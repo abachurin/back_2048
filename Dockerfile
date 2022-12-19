@@ -6,9 +6,6 @@ RUN apt-get update -y && apt-get install -y gcc
 RUN pip3 install -r requirements.txt
 COPY . .
 
-FROM nginx
-COPY ./default.conf /etc/nginx/conf.d/default.conf
-
 ENV PYTHONPATH /code
 RUN export PYTHONPATH=.
 ENTRYPOINT ["python3"]
