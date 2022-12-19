@@ -28,8 +28,8 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           context: .
-          images: abachurin/back_2048
           push: true
+          tags: abachurin/back_2048:latest
 
       - name: Message about CD
         run: echo "Push = success"
