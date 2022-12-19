@@ -29,6 +29,7 @@ jobs:
         with:
           context: .
           push: true
+          tags: abachurin/back_2048:latest
 
       - name: Message about CD
         run: echo "Push = success"
