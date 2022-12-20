@@ -154,6 +154,9 @@ class Mongo:
     def find_user(self, name: str):
         return self.coll.find_one({'name': name})
 
+    def user_list(self):
+        return [user['name'] for user in self.coll.find({})]
+
     def delete_user(self, name: str):
         return self.coll.delete_one({'name': name}).deleted_count
 
