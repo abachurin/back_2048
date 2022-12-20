@@ -43,5 +43,5 @@ jobs:
 #      run: docker build . -t $USER/$REPO:latest --platform linux/arm64/v8
 #      run: docker buildx build -t $USER/$REPO:latest --platform linux/arm/v8
 
-    - name: Push to Docker Hub
-      run: docker push $USER/$REPO:latest
+#    - name: Push to Docker Hub
+#      run: docker push $USER/$REPO:latest
