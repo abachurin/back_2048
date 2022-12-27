@@ -1,7 +1,7 @@
 from base.start import *
 
 
-app = FastAPI(docs_url='/docs', openapi_url='/openapi.json', redoc_url=None)
+app = FastAPI(root_path='/api/v1')
 app.openapi_version = '3.0.0'
 
 
